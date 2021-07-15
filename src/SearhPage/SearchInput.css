@@ -9,7 +9,7 @@
   height: 2rem;
 }
 
-#search-button {
+.search-page-button {
   color: white;
   background-color: blue;
   cursor: pointer;

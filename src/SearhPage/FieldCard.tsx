@@ -9,7 +9,7 @@ function FieldCard(props: Props) {
     <div id='field-card-container'>
     <label className='field-label'>{props.label}</label>
     { props.value && <span >{props.value}</span>} 
-    { !props.value && <span className='placeholder'>{props.symbol === 'deg'? 'Temperature' : 'Humididty'}</span>}
+    { !props.value && <span className='placeholder'>{props.symbol === 'deg'? 'Temperature' : 'Humidity'}</span>}
     {props.symbol === 'deg' && <span className='symbol'>&#8451;</span>}
     {props.symbol !== 'deg' && <span className='symbol'>%</span>}
     </div>
