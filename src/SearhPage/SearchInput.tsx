@@ -11,13 +11,13 @@ function SearchInput() {
   const [city, setCity] = useState('');
   const [searchResult, setSearchResult] = useState<number[]>([]);
   const [errorMessage, setErrorMessage] = useState('');
-  const [favoriteCities, setFavoriteCities] = useState<Cities>({ cities: []});
+  const [favouriteCities, setFavouriteCities] = useState<Cities>({ cities: []});
   let result: number[] = [];
   const key = 'bbd1b0329b9ffdfe98ba1d24b01caa49';
   
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => setCity(event.target.value);
 
-  const add = () => favoriteCities.cities.push(city);
+  const add = () => favouriteCities.cities.push(city);
 
 
   const submit = (event: React.SyntheticEvent) => {
@@ -48,7 +48,7 @@ function SearchInput() {
       </form>
       { errorMessage && <span className='error'>{errorMessage}</span>}
       <ResultCard currentTemp={searchResult[0]} minTemp={searchResult[1]} maxTemp={searchResult[2]} humidity={searchResult[3]}/>
-      <button className='search-page-button' onClick={add}>Add to Favorite</button>
+      <button className='search-page-button' onClick={add}>Add to Favourite</button>
     </div>
   );
   };
