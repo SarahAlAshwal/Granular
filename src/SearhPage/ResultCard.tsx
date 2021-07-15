@@ -1,28 +1,18 @@
-import { Temperature } from './SearchInput';
+import FieldCard from './FieldCard';
 interface Props {
-  tempArray: Temperature[]
-  humidity: number | undefined
+  currentTemp: number
+  maxTemp: number
+  minTemp: number
+  humidity: number
 }
 
 function ResultCard(props: Props) {
-  const temperature = props.tempArray.map((temp: Temperature, index) => {
-    return (
-      <div key={index}>
-      <label>{Object.keys(temp)[0]}</label>
-      <span>{Object.values(temp)[0]}</span>
-      <span>&#8451;</span>
-    </div>
-    )
-  }
-  )
   return (
     <div>
-      {temperature}
-      <div>
-      <label>Humidity</label>
-      <span>{props.humidity}</span>
-      <span>%</span>
-      </div>
+      <FieldCard label='Current Temperature' value={props.currentTemp} symbol='deg'/>
+      <FieldCard label='Minimum Temperature' value={props.minTemp} symbol='deg'/>
+      <FieldCard label='Maximum Temperature' value={props.maxTemp} symbol='deg'/>
+      <FieldCard label='Humidity' value={props.humidity}/>
     </div>
   );
 }
