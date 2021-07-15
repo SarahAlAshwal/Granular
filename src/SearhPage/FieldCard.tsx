@@ -1,3 +1,4 @@
+import './FieldCard.css';
 interface Props {
   label: string
   value: number
@@ -5,11 +6,12 @@ interface Props {
 }
 function FieldCard(props: Props) {
   return (
-    <div>
-    <label>{props.label}</label>
-    <span>{props.value}</span>
-    {props.symbol === 'deg' && <span>&#8451;</span>}
-    {props.symbol !== 'deg' && <span>%</span>}
+    <div id='field-card-container'>
+    <label className='field-label'>{props.label}</label>
+    { props.value && <span >{props.value}</span>} 
+    { !props.value && <span className='placeholder'>{props.symbol === 'deg'? 'Temperature' : 'Humididty'}</span>}
+    {props.symbol === 'deg' && <span className='symbol'>&#8451;</span>}
+    {props.symbol !== 'deg' && <span className='symbol'>%</span>}
     </div>
   );
 }

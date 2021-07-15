@@ -1,4 +1,5 @@
 import FieldCard from './FieldCard';
+import './ResultCard.css';
 interface Props {
   currentTemp: number
   maxTemp: number
@@ -8,7 +9,7 @@ interface Props {
 
 function ResultCard(props: Props) {
   return (
-    <div>
+    <div id='result-card'>
       <FieldCard label='Current Temperature' value={props.currentTemp} symbol='deg'/>
       <FieldCard label='Minimum Temperature' value={props.minTemp} symbol='deg'/>
       <FieldCard label='Maximum Temperature' value={props.maxTemp} symbol='deg'/>
