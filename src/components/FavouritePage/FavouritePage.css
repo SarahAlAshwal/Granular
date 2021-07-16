@@ -1,0 +1,19 @@
+#favourite-page {
+  width: 50%;
+  border: 1px solid blue;
+  display: inline-block;
+}
+
+.records-header {
+color: white;
+text-align: left;
+font-weight: bold;
+font-size: 1.2rem;
+}
+
+#records-header-container {
+  background-color: blue;
+  display: grid;
+  grid-template-columns: 70% 20% 10%;
+  padding: 1rem;
+}

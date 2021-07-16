@@ -1,0 +1,7 @@
+.row-container{
+  display: grid;
+  grid-template-columns: 60% 30% 10%; 
+  padding: 1rem;
+  margin: 1rem;
+  text-align: left;
+}

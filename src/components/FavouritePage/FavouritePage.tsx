@@ -1,5 +1,5 @@
 import CityRow from './CityRow';
-import stateContext from '../../StateContext';
+import './FavouritePage.css';
 
 interface Props {
 cities: string[]
@@ -12,12 +12,14 @@ function FavouritePage (props: Props) {
     return <CityRow key={index} city={city} temp={props.temp[index]}/>
   });
 
-  console.log(props);
-
   return (
-  <>
+  <div id='favourite-page'>
+    <div id='records-header-container'>
+      <label className='records-header'>City</label>
+      <label className='records-header'>Tempreture Now</label>
+    </div>
     {citiesRows}
-  </>
+  </div>
   );
 };
 
