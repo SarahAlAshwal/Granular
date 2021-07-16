@@ -16,15 +16,17 @@ function App() {
   const [favouriteCities, setFavouriteCities] = useState<Cities>({ cities: [], temp: []});
 
   const goFavourite = (event: React.SyntheticEvent) => {
+    setFavouriteCities({...favouriteCities, temp:[]})
     for (const city of favouriteCities.cities) {
       axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`)
       .then(response => {
-        favouriteCities.temp.push(response.data.main.temp);
-        console.log(response.data.main.temp)
+        setFavouriteCities(prevState => {
+          return {...favouriteCities, temp:[ ...prevState.temp, response.data.main.temp]}
+        })
       })
       .catch(error => console.log(error))
     }
-    console.log(favouriteCities.temp);
+    console.log(favouriteCities.temp[0]);
     setShowFavourite(true);
   }
 
