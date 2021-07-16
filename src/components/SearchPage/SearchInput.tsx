@@ -3,23 +3,24 @@ import { useState } from 'react';
 import axios from 'axios';
 import ResultCard from './ResultCard';
 import FavouritePage from '../FavouritePage/FavouritePage';
+import { Cities } from '../../App';
 
-interface Cities {
-  cities: string[]
+interface Props {
+  cities: string []
 }
 
-function SearchInput() {
+function SearchInput(props: Props) {
   const [city, setCity] = useState('');
   const [searchResult, setSearchResult] = useState<number[]>([]);
   const [errorMessage, setErrorMessage] = useState('');
-  const [favouriteCities, setFavouriteCities] = useState<Cities>({ cities: []});
+
   let result: number[] = [];
   const key = 'bbd1b0329b9ffdfe98ba1d24b01caa49';
   
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => setCity(event.target.value);
 
   const add = () => {
-    favouriteCities.cities.push(city);
+    props.cities.push(city);
     alert(`${city} has been added to your favourite list`);
   }
 
@@ -53,7 +54,6 @@ function SearchInput() {
       { errorMessage && <span className='error'>{errorMessage}</span>}
       <ResultCard currentTemp={searchResult[0]} minTemp={searchResult[1]} maxTemp={searchResult[2]} humidity={searchResult[3]}/>
       <button className='search-page-button' onClick={add}>Add to Favourite</button>
-      <FavouritePage cities={favouriteCities.cities}/>
     </div>
   );
   };
