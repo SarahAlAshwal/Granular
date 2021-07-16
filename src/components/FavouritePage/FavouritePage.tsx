@@ -6,7 +6,7 @@ function FavouritePage () {
   const { favouriteCities } = useGlobalContext();
 
   const citiesRows = favouriteCities.cities.map( (city, index) => {
-    return <CityRow key={index} city={city} temp={favouriteCities.temp[index]}/>
+    return <CityRow key={index} index={index} city={city} temp={favouriteCities.temp[index]}/>
   });
 
   return (

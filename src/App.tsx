@@ -27,7 +27,6 @@ function App() {
       })
       .catch(error => console.log(error))
     }
-    console.log(favouriteCities.temp[0]);
     setShowFavourite(true);
   }
 

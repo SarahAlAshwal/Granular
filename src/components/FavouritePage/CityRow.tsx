@@ -7,7 +7,7 @@ import { useGlobalContext } from '../../GlobalContext';
 library.add(fas);
 
 interface Props {
-  key: number
+  index: number
   city: string
   temp: number
 }
@@ -16,7 +16,7 @@ function CityRow (props:Props) {
   const { favouriteCities } = useGlobalContext();
   
   return (
-      <div className='row-container' key={props.key}>
+      <div className='row-container' key={props.index}>
         <label>{props.city}</label>
         <div>
           <label>{props.temp}</label>
