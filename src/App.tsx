@@ -4,6 +4,7 @@ import SearchInput from './components/SearchPage/SearchInput';
 import Header from './components/Header/Header';
 import FavouritePage from './components/FavouritePage/FavouritePage';
 import axios from 'axios';
+import { MyGlobalContext } from './GlobalContext'
 
 export interface Cities {
   cities: string[]
@@ -34,11 +35,13 @@ function App() {
 
   return (
     <div className="App">
-      <Header goFavourite={goFavourite} goHome={goHome}/>
-      <h1 id='app-title'>My Weather App</h1>
-      { ! showFavourite && <SearchInput cities={favouriteCities.cities}/>}
-      { showFavourite && <FavouritePage cities={favouriteCities.cities} temp={favouriteCities.temp} />}
-    </div>
+      <MyGlobalContext.Provider value= {{ favouriteCities, setFavouriteCities }}>
+        <Header goFavourite={goFavourite} goHome={goHome}/>
+        <h1 id='app-title'>My Weather App</h1>
+        { ! showFavourite && <SearchInput />}
+        { showFavourite && <FavouritePage />}
+      </MyGlobalContext.Provider>  
+      </div>
   );
 }
 

@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import './CityRow.css';
+import { useGlobalContext } from '../../GlobalContext';
 
 library.add(fas);
 
@@ -12,6 +13,8 @@ interface Props {
 }
 
 function CityRow (props:Props) {
+  const { favouriteCities } = useGlobalContext();
+  
   return (
       <div className='row-container' key={props.key}>
         <label>{props.city}</label>

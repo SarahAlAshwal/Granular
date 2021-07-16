@@ -1,15 +1,12 @@
 import CityRow from './CityRow';
 import './FavouritePage.css';
+import { useGlobalContext } from '../../GlobalContext';
 
-interface Props {
-cities: string[]
-temp: number []
-}
+function FavouritePage () {
+  const { favouriteCities } = useGlobalContext();
 
-function FavouritePage (props: Props) {
-
-  const citiesRows = props.cities.map( (city, index) => {
-    return <CityRow key={index} city={city} temp={props.temp[index]}/>
+  const citiesRows = favouriteCities.cities.map( (city, index) => {
+    return <CityRow key={index} city={city} temp={favouriteCities.temp[index]}/>
   });
 
   return (

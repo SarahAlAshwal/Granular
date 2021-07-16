@@ -2,14 +2,11 @@ import './SearchInput.css';
 import { useState } from 'react';
 import axios from 'axios';
 import ResultCard from './ResultCard';
-import FavouritePage from '../FavouritePage/FavouritePage';
-import { Cities } from '../../App';
+import { useGlobalContext } from '../../GlobalContext';
 
-interface Props {
-  cities: string []
-}
 
-function SearchInput(props: Props) {
+function SearchInput() {
+  const { favouriteCities } = useGlobalContext();
   const [city, setCity] = useState('');
   const [searchResult, setSearchResult] = useState<number[]>([]);
   const [errorMessage, setErrorMessage] = useState('');
@@ -20,7 +17,7 @@ function SearchInput(props: Props) {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => setCity(event.target.value);
 
   const add = () => {
-    props.cities.push(city);
+    favouriteCities.cities.push(city);
     alert(`${city} has been added to your favourite list`);
   }
 
