@@ -13,7 +13,7 @@ export interface Cities {
 
 function App() {
   const key = 'bbd1b0329b9ffdfe98ba1d24b01caa49';
-  const[showFavourite, setShowFavourite] = useState(false);
+  const [showFavourite, setShowFavourite] = useState(false);
   const [favouriteCities, setFavouriteCities] = useState<Cities>({ cities: [], temp: []});
 
   const goFavourite = (event: React.SyntheticEvent) => {

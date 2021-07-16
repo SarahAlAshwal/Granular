@@ -3,6 +3,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import './CityRow.css';
 import { useGlobalContext } from '../../GlobalContext';
+import { Cities } from '../../App';
 
 library.add(fas);
 
@@ -13,7 +14,17 @@ interface Props {
 }
 
 function CityRow (props:Props) {
-  const { favouriteCities } = useGlobalContext();
+  const { favouriteCities, setFavouriteCities } = useGlobalContext();
+
+  const remove = (index: number): void => {
+    console.log('in remove', favouriteCities);
+    const temporaryCities = favouriteCities.cities;
+    const temporaryTemp = favouriteCities.temp;
+
+    setFavouriteCities({...favouriteCities, cities: temporaryCities.splice(index, 1)})
+    setFavouriteCities({...favouriteCities, temp: temporaryTemp.splice(index,1)})
+    console.log(favouriteCities);  
+  }
   
   return (
       <div className='row-container' key={props.index}>
@@ -22,7 +33,7 @@ function CityRow (props:Props) {
           <label>{props.temp}</label>
           <span className='symbol'>&#8451;</span>
         </div>
-        <FontAwesomeIcon className='' icon='trash' color='blue' size='1x'/>
+        <FontAwesomeIcon onClick={() => remove(props.index)} icon='trash' color='blue' size='1x'/>
       </div>
   );
 };

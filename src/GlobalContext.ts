@@ -1,7 +1,7 @@
 import { createContext, useContext } from "react";
 import { Cities } from './App';
 
-export type GlobalContent = {
+export interface GlobalContent {
   favouriteCities: Cities
   setFavouriteCities:({}: Cities) => void
 }
