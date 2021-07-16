@@ -2,6 +2,7 @@ import './SearchInput.css';
 import { useState } from 'react';
 import axios from 'axios';
 import ResultCard from './ResultCard';
+import FavouritePage from '../FavouritePage/FavouritePage';
 
 interface Cities {
   cities: string[]
@@ -17,7 +18,10 @@ function SearchInput() {
   
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => setCity(event.target.value);
 
-  const add = () => favouriteCities.cities.push(city);
+  const add = () => {
+    favouriteCities.cities.push(city);
+    alert(`${city} has been added to your favourite list`);
+  }
 
 
   const submit = (event: React.SyntheticEvent) => {
@@ -25,11 +29,11 @@ function SearchInput() {
     setSearchResult([]);
     if (city) {
       axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`)
-    .then(res => {
-      result.push(res.data.main.temp);
-      result.push(res.data.main.temp_min);
-      result.push(res.data.main.temp_max);
-      result.push(res.data.main.humidity);
+    .then(response => {
+      result.push(response.data.main.temp);
+      result.push(response.data.main.temp_min);
+      result.push(response.data.main.temp_max);
+      result.push(response.data.main.humidity);
       setSearchResult(result);
     }
     )
@@ -49,6 +53,7 @@ function SearchInput() {
       { errorMessage && <span className='error'>{errorMessage}</span>}
       <ResultCard currentTemp={searchResult[0]} minTemp={searchResult[1]} maxTemp={searchResult[2]} humidity={searchResult[3]}/>
       <button className='search-page-button' onClick={add}>Add to Favourite</button>
+      <FavouritePage cities={favouriteCities.cities}/>
     </div>
   );
   };
