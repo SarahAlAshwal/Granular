@@ -1,0 +1,10 @@
+#header-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.header-icon {
+  margin: 1rem;
+  cursor: pointer;
+}
