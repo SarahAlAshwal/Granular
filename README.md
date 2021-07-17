@@ -13,4 +13,7 @@ npm start
 npm install 
 In the browser: localhost:3000
 
+## Link for the app
+https://main.d5mjib9wrcqk4.amplifyapp.com/
+
 
