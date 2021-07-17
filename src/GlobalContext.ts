@@ -1,13 +1,13 @@
 import { createContext, useContext } from "react";
-import { Cities } from './App';
+import { City } from './App';
 
 export interface GlobalContent {
-  favouriteCities: Cities
-  setFavouriteCities:({}: Cities) => void
+  favouriteCities: City
+  setFavouriteCities:({}: City) => void
 }
 
 export const MyGlobalContext = createContext<GlobalContent>({
-favouriteCities: { cities: [], temp: []},
-setFavouriteCities: ({}: Cities) => {},
+favouriteCities: {},
+setFavouriteCities: ({}: City) => {},
 })
 export const useGlobalContext = () => useContext(MyGlobalContext)

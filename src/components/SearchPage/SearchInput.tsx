@@ -17,8 +17,12 @@ function SearchInput() {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => setCity(event.target.value);
 
   const add = () => {
-    favouriteCities.cities.push(city);
-    alert(`${city} has been added to your favourite list`);
+    if ( city !== '') {
+      favouriteCities[city] = null;
+      alert(`${city} has been added to your favourite list`);
+    } else {
+      alert("Sorry can't add empty city to favourite list!");
+    }
   }
 
 

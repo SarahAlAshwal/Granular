@@ -5,20 +5,25 @@ import { useGlobalContext } from '../../GlobalContext';
 function FavouritePage () {
   const { favouriteCities } = useGlobalContext();
 
-  const citiesRows = favouriteCities.cities.map( (city, index) => {
-    return <CityRow key={index} index={index} city={city} temp={favouriteCities.temp[index]}/>
-  });
+  const citiesRows = [];
+  let index = 0;
+  
+  for (const city in favouriteCities) {
+    citiesRows.push( <CityRow key={index} index={index} city={city} temp={favouriteCities[city]}/>)
+    index ++;
+  }
+    
 
   return (
   <div id='favourite-page'>
-    { favouriteCities.cities.length > 0 && <div id='records-header-container'>
+    { Object.keys(favouriteCities).length > 0 &&
+     <div id='records-header-container'>
       <label className='records-header'>City</label>
       <label className='records-header'>Tempreture Now</label>
     </div>}
-    { favouriteCities.cities.length === 0 && 
-      <p id='empty-list'>No favourite cities</p>
-    }
     {citiesRows} 
+    { Object.keys(favouriteCities).length === 0 &&
+     <p id='empty-list'>No favourite cities</p> }
   </div> 
   );
 };

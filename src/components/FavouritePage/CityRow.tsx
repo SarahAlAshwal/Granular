@@ -10,20 +10,15 @@ library.add(fas);
 interface Props {
   index: number
   city: string
-  temp: number
+  temp: number | null
 }
 
 function CityRow (props:Props) {
   const { favouriteCities, setFavouriteCities } = useGlobalContext();
 
-  const remove = (index: number): void => {
-    const temporaryCities = favouriteCities.cities;
-    const temporaryTemp = favouriteCities.temp;
-    console.log(temporaryTemp, temporaryCities);
-
-    setFavouriteCities({...favouriteCities, cities: temporaryCities.splice(index, 1)})
-    setFavouriteCities({...favouriteCities, temp: temporaryTemp.splice(index,1)})
-    console.log(favouriteCities); 
+  const remove = (city: string): void => {
+    const { [city]: remove, ...rest} = favouriteCities;
+    setFavouriteCities (rest);
   }
   
   return (
@@ -33,7 +28,7 @@ function CityRow (props:Props) {
           <label>{props.temp}</label>
           <span className='symbol'>&#8451;</span>
         </div>
-        <FontAwesomeIcon className='trash-icon' onClick={() => remove(props.index)} icon='trash' color='blue' size='1x'/>
+        <FontAwesomeIcon className='trash-icon' onClick={() => remove(props.city)} icon='trash' color='blue' size='1x'/>
       </div>
   );
 };
