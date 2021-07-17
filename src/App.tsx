@@ -35,7 +35,7 @@ function App() {
       <MyGlobalContext.Provider value= {{ favouriteCities, setFavouriteCities }}>
         <Header goFavourite={goFavourite} goHome={goHome}/>
         <h1 id='app-title'>My Weather App</h1>
-        { ! showFavourite && <SearchInput />}
+        { !showFavourite && <SearchInput />}
         { showFavourite && <FavouritePage />}
       </MyGlobalContext.Provider>  
       </div>

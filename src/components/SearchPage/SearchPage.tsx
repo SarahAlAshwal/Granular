@@ -21,7 +21,7 @@ function SearchInput() {
       favouriteCities[city] = null; // This will prevent having the same city more than once
       alert(`${city} has been added to your favourite list`);
     } else {
-      alert("Sorry can't add empty city to favourite list!");
+      alert("Sorry can't add an empty city to favourite list!");
     }
   }
 
@@ -37,8 +37,7 @@ function SearchInput() {
       result.push(response.data.main.temp_max);
       result.push(response.data.main.humidity);
       setSearchResult(result);
-    }
-    )
+    })
     .catch(error => console.log(error));
     setErrorMessage('');
     } else {
@@ -57,6 +56,6 @@ function SearchInput() {
       <button className='search-page-button' onClick={add}>Add to Favourite</button>
     </div>
   );
-  };
+};
 
   export default SearchInput;
