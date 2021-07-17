@@ -1,6 +1,5 @@
 #favourite-page {
   width: 50%;
-  border: 1px solid blue;
   display: inline-block;
 }
 
@@ -16,4 +15,9 @@ font-size: 1.2rem;
   display: grid;
   grid-template-columns: 70% 20% 10%;
   padding: 1rem;
+}
+
+#empty-list {
+  font-style: italic;
+  color: blue;
 }

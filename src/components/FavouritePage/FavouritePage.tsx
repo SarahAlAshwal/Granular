@@ -11,12 +11,15 @@ function FavouritePage () {
 
   return (
   <div id='favourite-page'>
-    <div id='records-header-container'>
+    { favouriteCities.cities.length > 0 && <div id='records-header-container'>
       <label className='records-header'>City</label>
       <label className='records-header'>Tempreture Now</label>
-    </div>
-    {citiesRows}
-  </div>
+    </div>}
+    { favouriteCities.cities.length === 0 && 
+      <p id='empty-list'>No favourite cities</p>
+    }
+    {citiesRows} 
+  </div> 
   );
 };
 
