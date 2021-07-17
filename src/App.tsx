@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import SearchInput from './components/SearchPage/SearchInput';
+import SearchInput from './components/SearchPage/SearchPage';
 import Header from './components/Header/Header';
 import FavouritePage from './components/FavouritePage/FavouritePage';
 import axios from 'axios';

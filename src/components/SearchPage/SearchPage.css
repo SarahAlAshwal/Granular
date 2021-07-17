@@ -9,6 +9,10 @@
   height: 2rem;
 }
 
+input:focus {
+  border-color: blue;
+}
+
 .search-page-button {
   color: white;
   background-color: blue;

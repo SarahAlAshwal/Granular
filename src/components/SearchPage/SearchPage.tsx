@@ -1,4 +1,4 @@
-import './SearchInput.css';
+import './SearchPage.css';
 import { useState } from 'react';
 import axios from 'axios';
 import ResultCard from './ResultCard';
@@ -18,7 +18,7 @@ function SearchInput() {
 
   const add = () => {
     if ( city !== '') {
-      favouriteCities[city] = null;
+      favouriteCities[city] = null; // This will prevent having the same city more than once
       alert(`${city} has been added to your favourite list`);
     } else {
       alert("Sorry can't add empty city to favourite list!");
